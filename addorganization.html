@@ -1,0 +1,110 @@
+<div id="myModal" class="modal">
+    <span class="close" id="closeModal">&times;</span>
+    
+    <h2>Add New Contact</h2>
+    <form id="contactForm">
+        
+        <div class="textarea">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter First Name" required>
+        </div>
+        
+        <div class="textarea">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Enter Last Name" required>
+        </div>
+        
+        <div class="textarea">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        </div>
+        
+        <div class="textarea">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <div class="textarea">
+            <label for="phone">Phone No.</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter Phone No" required>
+        </div>
+        
+        <div class="textarea">
+            <label for="linkedin">LinkedIn</label>
+            <input type="text" id="linkedin" name="linkedin" placeholder="Enter LinkedIn Profile">
+        </div>
+
+        <div class="textarea">
+            <label for="fb">Facebook</label>
+            <input type="text" id="fb" name="fb" placeholder="Enter Facebook Profile">
+        </div>
+
+        <div class="textarea">
+            <label for="twit">Twitter</label>
+            <input type="text" id="twit" name="twit" placeholder="Enter Twitter Profile">
+        </div>
+
+        <div class="textarea">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter Address" required></textarea>
+        </div>
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            
+            <button type="button" class="btn btn-outline-primary">Save & New</button>
+            <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
+        </div>
+    </form>
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const saveAndNewButton = document.querySelector('#contactForm button[type="button"]');
+        
+        function validateForm(event) {
+            const firstName = document.getElementById('fname').value;
+            const lastName = document.getElementById('lname').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const linkedin = document.getElementById('linkedin').value;
+            const fb = document.getElementById('fb').value;
+            const twit = document.getElementById('twit').value;
+
+            if (!firstName || !lastName || !email || !phone) {
+                alert('Please fill in all required fields.');
+                event.preventDefault(); 
+            }
+            if (phone.length < 11) {
+                alert('Enter Valid Phone Number');
+                event.preventDefault(); 
+            }
+            if (!isValidEmail(email)) {
+                alert('Enter a valid email address.');
+                event.preventDefault(); 
+            } 
+            if (linkedin && !isValidURL(linkedin)) {
+                alert('Enter a valid website link for LinkedIn.');
+                event.preventDefault(); 
+            }
+            if (fb && !isValidURL(fb)) {
+                alert('Enter a valid website link for Facebook.');
+                event.preventDefault(); 
+            }
+            if (twit && !isValidURL(twit)) {
+                alert('Enter a valid website link for Twitter.');
+                event.preventDefault(); 
+            }
+        }
+        
+        contactForm.addEventListener('submit', validateForm);
+        
+        function isValidEmail(email) {
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailPattern.test(email);
+        }
+        
+        function isValidURL(url) {
+            const urlPattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i;
+            return urlPattern.test(url);
+        }
+    </script>
+</div>

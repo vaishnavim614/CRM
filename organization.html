@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="contact.css" rel="stylesheet">
+    <title>Contact Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>name CRM</h1>
+        <div class="search-box">
+            <i id="search-btn" class="fa fa-search"></i>
+            <input type="text" maxlength="100" placeholder="Search all data...">
+        </div>
+        
+        <ol class="menu">
+            <li type="button" id="addContact"><span>&#43;</span></li>
+            <li>
+                <i id="profile-icon" class="fas fa-user profile-icon" style="color: white;"></i>
+            </li>
+        </ol>
+    </header>
+
+    <script>
+        document.getElementById('addContact').addEventListener('click', function () {
+        
+            fetch('addorganization.html')
+                .then(response => response.text())
+                .then(data => {
+                    
+                    const formContainer = document.createElement('div');
+                    formContainer.innerHTML = data;
+                    document.body.appendChild(formContainer);
+
+                    
+                    const closeModal = document.getElementById('closeModal');
+                    closeModal.addEventListener('click', function () {
+                        formContainer.remove();
+                    });
+
+                    
+                    const contactForm = document.getElementById('contactForm');
+                    contactForm.addEventListener('submit', function (event) {
+                        
+                        formContainer.remove();
+
+                    
+                        event.preventDefault();
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

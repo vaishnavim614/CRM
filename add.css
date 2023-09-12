@@ -1,0 +1,81 @@
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+/* CSS for the close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+    
+input[type='text'],
+input[type='email'],
+input[type='date'],
+input[type='password'] {
+  margin-right: 10px;
+  padding: 5px;
+  resize: vertical;
+  border-radius: 4px;
+}
+
+.textarea {
+  display: flex;
+  vertical-align: top;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.textarea label {
+  margin-left: 40px;
+
+  width: 250px;
+}
+
+.textarea input {
+  flex: 1;
+  padding: 5px;
+  resize: vertical;
+  border-radius: 4px;
+}
+
+.address {
+  padding-bottom: 2px;
+  width: 100%;
+}
+
+input[type='radio'] {
+  margin-left: 50px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+
+  margin-left: 130px;
+}
+
+.radio label {
+  margin-left: 0;
+}
+
+input[type='radio'] {
+  margin-right: 5px;
+}
+.button {
+  margin-left: 58%;
+}
+.button input[type='button'] {
+  margin-right: 30px;
+}
